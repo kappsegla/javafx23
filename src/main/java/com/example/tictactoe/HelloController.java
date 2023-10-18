@@ -1,24 +1,14 @@
 package com.example.tictactoe;
 
-import javafx.event.ActionEvent;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.Window;
-
-import java.io.File;
-import java.util.stream.Stream;
+import javafx.scene.media.AudioClip;
 
 
 public class HelloController {
 
 
     private Model model = new Model();
-    //AudioClip buzzer = new AudioClip(getClass().getResource("sounds/punch.mp3").toExternalForm());
+    AudioClip buzzer = new AudioClip(getClass().getResource("sounds/punch.mp3").toExternalForm());
 
     public Model getModel() {
         return model;
@@ -30,14 +20,14 @@ public class HelloController {
 
 
     public void image1Clicked(MouseEvent mouseEvent) {
-
+        buzzer.play();
     }
 
     public void image2Clicked(MouseEvent mouseEvent) {
-
+        buzzer.play();
     }
 
     public void image3Clicked(MouseEvent mouseEvent) {
-
+        buzzer.play();
     }
 }
