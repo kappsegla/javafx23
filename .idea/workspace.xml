@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b070ae6-79fc-490b-b1bd-c618c0c5ca29" name="Changes" comment="Add Model">
+    <list default="true" id="9b070ae6-79fc-490b-b1bd-c618c0c5ca29" name="Changes" comment="Add Property and Bindings">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tictactoe/sounds/punch.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tictactoe/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tictactoe/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +53,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marti\IdeaProjects\tictactoe\src\main\resources\com\example\tictactoe\sounds" />
+      <recent name="C:\Users\marti\IdeaProjects\tictactoe\src\main\resources\com\example\tictactoe" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.tictactoe.HelloApplication" />
@@ -79,6 +88,8 @@
       <option name="presentableId" value="Default" />
       <updated>1697527969292</updated>
       <workItem from="1697527970332" duration="6242000" />
+      <workItem from="1697611583580" duration="1998000" />
+      <workItem from="1697613782204" duration="3215000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -94,7 +105,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1697542414615</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Add Property and Bindings">
+      <option name="closed" value="true" />
+      <created>1697547017156</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1697547017156</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Add Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Model" />
+    <MESSAGE value="Add Property and Bindings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Property and Bindings" />
   </component>
 </project>

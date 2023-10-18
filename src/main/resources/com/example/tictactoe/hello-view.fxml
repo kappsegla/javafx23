@@ -14,7 +14,8 @@
     <Label fx:id="anotherLabel" text="${controller.model.message}" />
     <Button fx:id="button1" onAction="#onHelloButtonAction" text="Hello" />
     <CheckBox fx:id="checkbox1" />
-    <TextField disable="${ !checkbox1.selected }" />
+    <TextField fx:id="textField" disable="${ !checkbox1.selected }" />
     <ColorPicker fx:id="colorPicker"/>
    <Circle fill="${colorPicker.value}" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+    <ListView items="${controller.model.names}"/>
 </VBox>
