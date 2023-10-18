@@ -54,7 +54,7 @@ public class Model {
         setName("");
     }
 
-    public void saveToFile(Path path, Button button2) {
+    public void saveToFile(Path path) {
         setSaveDisabled(true);
         String joinedNames = names.stream().collect(Collectors.joining("\n"));
 

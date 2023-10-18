@@ -34,7 +34,7 @@ public class HelloController {
         model.addNewPerson();
     }
 
-    public void onSaveButtonAction(ActionEvent event ) {
+    public void onSaveButtonAction(ActionEvent event) {
         Window window =
                 ((Node) event.getSource()).getScene().getWindow();
         //ToDo: Reuse same fileChooser instance
@@ -44,7 +44,7 @@ public class HelloController {
                 new FileChooser.ExtensionFilter("Text File", "*.txt"));
         File selectedFile = fileChooser.showSaveDialog(window);
         if (selectedFile != null) {
-            model.saveToFile(selectedFile.toPath(), saveButton);
+            model.saveToFile(selectedFile.toPath());
         }
     }
 }
