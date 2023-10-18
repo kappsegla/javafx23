@@ -75,4 +75,27 @@ public class Model {
     public void setScore(String score) {
         this.score.set(score);
     }
+
+    public void smack(int i) {
+        if( i == 1)
+        {
+            if( first.get().equals(image2)) {
+                yourScore++;
+                setFirst(image1);
+            }
+        }
+        if( i == 2){
+            if( second.get().equals(image2)) {
+                yourScore++;
+                setSecond(image1);
+            }
+        }
+        if( i == 3){
+            if( third.get().equals(image2)) {
+                yourScore++;
+                setThird(image1);
+            }
+        }
+        setScore(yourScore + " poäng");
+    }
 }

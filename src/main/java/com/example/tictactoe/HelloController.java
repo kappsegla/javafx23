@@ -21,13 +21,16 @@ public class HelloController {
 
     public void image1Clicked(MouseEvent mouseEvent) {
         buzzer.play();
+        model.smack(1);
     }
 
     public void image2Clicked(MouseEvent mouseEvent) {
         buzzer.play();
+        model.smack(2);
     }
 
     public void image3Clicked(MouseEvent mouseEvent) {
         buzzer.play();
+        model.smack(3);
     }
 }
