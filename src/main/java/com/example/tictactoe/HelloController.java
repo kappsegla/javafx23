@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -28,4 +29,15 @@ public class HelloController {
     }
 
 
+    public void image1Clicked(MouseEvent mouseEvent) {
+
+    }
+
+    public void image2Clicked(MouseEvent mouseEvent) {
+
+    }
+
+    public void image3Clicked(MouseEvent mouseEvent) {
+
+    }
 }
