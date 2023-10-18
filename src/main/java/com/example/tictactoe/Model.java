@@ -57,7 +57,6 @@ public class Model {
     public void saveToFile(Path path) {
         setSaveDisabled(true);
         String joinedNames = names.stream().collect(Collectors.joining("\n"));
-
         Thread thread = new Thread(() -> {
             try {
                 Thread.sleep(2000);
