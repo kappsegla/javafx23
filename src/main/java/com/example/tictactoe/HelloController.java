@@ -1,11 +1,11 @@
 package com.example.tictactoe;
 
+import javafx.animation.AnimationTimer;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 
 
 public class HelloController {
-
 
     private Model model = new Model();
     AudioClip buzzer = new AudioClip(getClass().getResource("sounds/punch.mp3").toExternalForm());

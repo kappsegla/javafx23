@@ -1,7 +1,11 @@
 package com.example.tictactoe;
 
+import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.scene.image.Image;
+
+import java.util.List;
+import java.util.Random;
 
 public class Model {
 
@@ -14,13 +18,31 @@ public class Model {
 
     private StringProperty score = new SimpleStringProperty("0 poäng");
     private int yourScore;
+    private Thread thread;
 
-    public Model(){
+    public Model() {
         image1 = new Image(getClass().getResource("images/first.png").toExternalForm());
         image2 = new Image(getClass().getResource("images/second.png").toExternalForm());
         first = new SimpleObjectProperty<>(image1);
         second = new SimpleObjectProperty<>(image1);
         third = new SimpleObjectProperty<>(image1);
+
+        List<ObjectProperty<Image>> images = List.of(first,second,third);
+
+        Thread.ofVirtual().start(() -> {
+            Random random = new Random();
+            while (true) {
+                int sleepTime = random.nextInt(500, 3000);
+                int next = random.nextInt(0,3);
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                Platform.runLater(()-> images.get(next).set(image2));
+            }
+        });
+
     }
 
     public Image getFirst() {
@@ -77,21 +99,20 @@ public class Model {
     }
 
     public void smack(int i) {
-        if( i == 1)
-        {
-            if( first.get().equals(image2)) {
+        if (i == 1) {
+            if (first.get().equals(image2)) {
                 yourScore++;
                 setFirst(image1);
             }
         }
-        if( i == 2){
-            if( second.get().equals(image2)) {
+        if (i == 2) {
+            if (second.get().equals(image2)) {
                 yourScore++;
                 setSecond(image1);
             }
         }
-        if( i == 3){
-            if( third.get().equals(image2)) {
+        if (i == 3) {
+            if (third.get().equals(image2)) {
                 yourScore++;
                 setThird(image1);
             }
