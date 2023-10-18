@@ -1,10 +1,15 @@
 package com.example.tictactoe;
 
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.File;
 
 
 public class HelloController {
@@ -23,18 +28,24 @@ public class HelloController {
     }
 
     public void initialize() {
-        model.addName("Kalle");
-        model.addName("Olle");
-        welcomeText.textProperty().bind(model.messageProperty());
-        textField.textProperty().bindBidirectional(model.messageProperty());
+        textField.textProperty().bindBidirectional(model.nameProperty());
     }
 
-    @FXML
-    protected void onHelloButtonAction() {
+    public void onAddButtonAction() {
         model.addNewPerson();
     }
 
-    public void onLabelClicked(MouseEvent mouseEvent) {
-
+    public void onSaveButtonAction(ActionEvent event) {
+        Window window =
+        ((Node)event.getSource()).getScene().getWindow();
+        //ToDo: Reuse same fileChooser instance
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save As");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text File", "*.txt"));
+        File selectedFile = fileChooser.showSaveDialog(window);
+        if (selectedFile != null) {
+            model.saveToFile(selectedFile.toPath());
+        }
     }
 }

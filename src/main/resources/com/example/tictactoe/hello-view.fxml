@@ -9,13 +9,8 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText" onMouseClicked="#onLabelClicked" />
-    <Label fx:id="anotherLabel" text="${controller.model.message}" />
-    <Button fx:id="button1" onAction="#onHelloButtonAction" text="Hello" />
-    <CheckBox fx:id="checkbox1" />
-    <TextField fx:id="textField" disable="${ !checkbox1.selected }" />
-    <ColorPicker fx:id="colorPicker"/>
-   <Circle fill="${colorPicker.value}" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
     <ListView items="${controller.model.names}"/>
+    <TextField fx:id="textField" />
+    <Button fx:id="addButton" onAction="#onAddButtonAction" text="Add" />
+    <Button fx:id="saveButton" onAction="#onSaveButtonAction" text="Save" />
 </VBox>

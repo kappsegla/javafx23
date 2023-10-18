@@ -5,25 +5,27 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.stream.Collectors;
 
 public class Model {
-    private StringProperty message = new SimpleStringProperty();
+    private StringProperty name = new SimpleStringProperty();
 
     private ObservableList<String> names = FXCollections.observableList(new ArrayList<>());
 
-    public String getMessage() {
-        return message.get();
+    public String getName() {
+        return name.get();
     }
 
-    public StringProperty messageProperty() {
-        return message;
+    public StringProperty nameProperty() {
+        return name;
     }
 
-    public void setMessage(String message) {
-        this.message.set(message);
+    public void setName(String name) {
+        this.name.set(name);
     }
 
     public ObservableList<String> getNames() {
@@ -36,11 +38,21 @@ public class Model {
     }
 
     void addNewPerson() {
-        String name = getMessage();
-        if( name.isEmpty())
+        String name = getName();
+        if (name.isEmpty())
             return;
-        if( names.contains(name))
+        if (names.contains(name))
             return;
         addName(name);
+    }
+
+    public void saveToFile(Path path) {
+        String joinedNames = names.stream().collect(Collectors.joining("\n"));
+
+        try {
+            Files.writeString(path, joinedNames);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
