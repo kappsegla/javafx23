@@ -1,9 +1,13 @@
 package com.example.tictactoe;
 
+import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,6 +19,8 @@ public class Model {
     private StringProperty name = new SimpleStringProperty();
 
     private ObservableList<String> names = FXCollections.observableList(new ArrayList<>());
+
+    private BooleanProperty saveDisabled = new SimpleBooleanProperty(true);
 
     public String getName() {
         return name.get();
@@ -44,15 +50,40 @@ public class Model {
         if (names.contains(name))
             return;
         addName(name);
+        setSaveDisabled(false);
+        setName("");
     }
 
-    public void saveToFile(Path path) {
+    public void saveToFile(Path path, Button button2) {
+        setSaveDisabled(true);
         String joinedNames = names.stream().collect(Collectors.joining("\n"));
 
-        try {
-            Files.writeString(path, joinedNames);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Thread thread = new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+                Files.writeString(path, joinedNames);
+                System.out.println("File saved...");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } finally {
+                Platform.runLater(() -> setSaveDisabled(false));
+            }
+        });
+
+        thread.start();
+    }
+
+    public boolean isSaveDisabled() {
+        return saveDisabled.get();
+    }
+
+    public BooleanProperty saveDisabledProperty() {
+        return saveDisabled;
+    }
+
+    public void setSaveDisabled(boolean saveEnabled) {
+        this.saveDisabled.set(saveEnabled);
     }
 }

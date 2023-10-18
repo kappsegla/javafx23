@@ -12,5 +12,5 @@
     <ListView items="${controller.model.names}"/>
     <TextField fx:id="textField" />
     <Button fx:id="addButton" onAction="#onAddButtonAction" text="Add" />
-    <Button fx:id="saveButton" onAction="#onSaveButtonAction" text="Save" />
+    <Button fx:id="saveButton" disable="${controller.model.saveDisabled}" onAction="#onSaveButtonAction" text="Save" />
 </VBox>

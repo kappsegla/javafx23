@@ -10,20 +10,19 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.File;
+import java.util.stream.Stream;
 
 
 public class HelloController {
 
-    public Button button1;
+    public Button saveButton;
 
-    public Label welcomeText;
-    public Label anotherLabel;
     public TextField textField;
 
     private Model model = new Model();
     //AudioClip buzzer = new AudioClip(getClass().getResource("sounds/punch.mp3").toExternalForm());
 
-    public Model getModel(){
+    public Model getModel() {
         return model;
     }
 
@@ -35,9 +34,9 @@ public class HelloController {
         model.addNewPerson();
     }
 
-    public void onSaveButtonAction(ActionEvent event) {
+    public void onSaveButtonAction(ActionEvent event ) {
         Window window =
-        ((Node)event.getSource()).getScene().getWindow();
+                ((Node) event.getSource()).getScene().getWindow();
         //ToDo: Reuse same fileChooser instance
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save As");
@@ -45,7 +44,7 @@ public class HelloController {
                 new FileChooser.ExtensionFilter("Text File", "*.txt"));
         File selectedFile = fileChooser.showSaveDialog(window);
         if (selectedFile != null) {
-            model.saveToFile(selectedFile.toPath());
+            model.saveToFile(selectedFile.toPath(), saveButton);
         }
     }
 }

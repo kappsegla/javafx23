@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b070ae6-79fc-490b-b1bd-c618c0c5ca29" name="Changes" comment="Add ListView Example code">
+    <list default="true" id="9b070ae6-79fc-490b-b1bd-c618c0c5ca29" name="Changes" comment="Add ListView save to file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tictactoe/Model.java" afterDir="false" />
@@ -86,7 +86,7 @@
       <updated>1697527969292</updated>
       <workItem from="1697527970332" duration="6242000" />
       <workItem from="1697611583580" duration="1998000" />
-      <workItem from="1697613782204" duration="5565000" />
+      <workItem from="1697613782204" duration="8902000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -116,7 +116,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1697618280597</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Add ListView save to file">
+      <option name="closed" value="true" />
+      <created>1697621075440</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1697621075440</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +134,7 @@
     <MESSAGE value="Add Model" />
     <MESSAGE value="Add Property and Bindings" />
     <MESSAGE value="Add ListView Example code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ListView Example code" />
+    <MESSAGE value="Add ListView save to file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ListView save to file" />
   </component>
 </project>
