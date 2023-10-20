@@ -6,11 +6,14 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
+import java.util.function.DoubleConsumer;
+import java.util.function.DoubleFunction;
+
 public class SnakeController {
 
     public Canvas canvas;
 
-    GameLoop gameLoop = new GameLoop();
+    GameLoop gameLoop;
 
     private Model model = new Model();
 
@@ -19,9 +22,15 @@ public class SnakeController {
     }
 
     public void initialize() {
+        DoubleConsumer doubleConsumer = model::update;
+        doubleConsumer = doubleConsumer.andThen(this::render);
 
+        gameLoop = new GameLoop(doubleConsumer);
         gameLoop.start();
+    }
 
+    private void render(double elapsedTime) {
+        //ToDo: Render snake
     }
 
 
