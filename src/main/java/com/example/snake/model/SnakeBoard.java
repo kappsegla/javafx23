@@ -38,23 +38,35 @@ public class SnakeBoard {
             return;
         accumulatedTime = 0.0;
 
-        Point next = switch (currentDirection) {
-            case UP -> new Point(head.xpos, head.ypos - 1);
-            case DOWN -> new Point(head.xpos, head.ypos + 1);
-            case LEFT -> new Point(head.xpos - 1, head.ypos);
-            case RIGHT -> new Point(head.xpos + 1, head.ypos);
-        };
+        Point next = calculateNextHeadPos();
 
+        checkForCollisionsWithWalls(next);
+
+        checkForCollisionWithApple();
+
+    }
+
+    private void checkForCollisionWithApple() {
+        if( head.equals(apple))
+            apple = randomApple();
+    }
+
+    private void checkForCollisionsWithWalls(Point next) {
         if (next.xpos < 0 || next.xpos > 39)
             gameStatus = GAME_OVER;
         else if (next.ypos < 0 || next.ypos > 39)
             gameStatus = GAME_OVER;
         else
             head = next;
+    }
 
-        if( head.equals(apple))
-            apple = randomApple();
-
+    private Point calculateNextHeadPos() {
+        return switch (currentDirection) {
+            case UP -> new Point(head.xpos, head.ypos - 1);
+            case DOWN -> new Point(head.xpos, head.ypos + 1);
+            case LEFT -> new Point(head.xpos - 1, head.ypos);
+            case RIGHT -> new Point(head.xpos + 1, head.ypos);
+        };
     }
 
     public void setUp() {
