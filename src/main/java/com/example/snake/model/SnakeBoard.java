@@ -27,20 +27,20 @@ public class SnakeBoard {
             return;
         accumulatedTime = 0.0;
 
-        if (currentDirection == UP)
-            head = new Point(head.xpos, head.ypos - 1);
-        if (currentDirection == DOWN)
-            head = new Point(head.xpos, head.ypos + 1);
-        if (currentDirection == LEFT)
-            head = new Point(head.xpos - 1, head.ypos);
-        if (currentDirection == RIGHT)
-            head = new Point(head.xpos + 1, head.ypos);
+        Point next = switch (currentDirection) {
+            case UP -> new Point(head.xpos, head.ypos - 1);
+            case DOWN -> new Point(head.xpos, head.ypos + 1);
+            case LEFT -> new Point(head.xpos - 1, head.ypos);
+            case RIGHT -> new Point(head.xpos + 1, head.ypos);
+        };
 
-        //Todo: Check for collisions with walls, keep track of game status
-        if (head.xpos < 0 || head.xpos > 39)
+        if (next.xpos < 0 || next.xpos > 39)
             gameStatus = GAME_OVER;
-        if (head.ypos < 0 || head.ypos > 39)
+        else if (next.ypos < 0 || next.ypos > 39)
             gameStatus = GAME_OVER;
+        else
+            head = next;
+
 
 
     }
