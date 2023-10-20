@@ -48,9 +48,16 @@ public class SnakeBoard {
 
         checkForCollisionsWithWalls(next);
 
-        snake.addFirst(head);
         checkForCollisionWithApple();
 
+        checkForCollisionsWithSelf();
+
+        snake.addFirst(head);
+    }
+
+    private void checkForCollisionsWithSelf() {
+        if( snake.contains(head))
+            gameStatus = GAME_OVER;
     }
 
     private void checkForCollisionWithApple() {
