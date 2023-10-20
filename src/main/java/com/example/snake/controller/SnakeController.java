@@ -50,6 +50,8 @@ public class SnakeController {
         gc.setFill(Color.LAWNGREEN);
         var head = model.head;
         gc.fillRect(head.xpos() * 15, head.ypos() * 15, 15, 15);
+        gc.setFill(Color.BLACK);
+        gc.strokeText(model.getGameStatus().toString(), 20,20);
     }
 
 
