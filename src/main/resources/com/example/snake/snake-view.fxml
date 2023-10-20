@@ -5,5 +5,5 @@
 <Pane xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.snake.SnakeController">
-<Canvas width="600" height="600" />
+<Canvas fx:id="canvas" width="600" height="600" onMouseClicked="#canvasClicked"/>
 </Pane>
