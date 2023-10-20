@@ -1,5 +1,6 @@
 package com.example.snake;
 
+import com.example.snake.controller.SnakeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 600, 600);
         stage.setTitle("Snake");
         stage.setScene(scene);
+        fxmlLoader.<SnakeController>getController().init(stage);
         stage.show();
     }
 
