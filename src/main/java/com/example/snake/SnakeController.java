@@ -1,6 +1,7 @@
 package com.example.snake;
 
 
+import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -9,14 +10,17 @@ public class SnakeController {
 
     public Canvas canvas;
 
-    private Model model = new Model();
+    GameLoop gameLoop = new GameLoop();
 
+    private Model model = new Model();
 
     public Model getModel() {
         return model;
     }
 
     public void initialize() {
+
+        gameLoop.start();
 
     }
 
