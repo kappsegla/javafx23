@@ -1,12 +1,8 @@
-package com.example.tictactoe;
+package com.example.snake;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,9 +10,9 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("snake-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        stage.setTitle("Snake");
         stage.setScene(scene);
         stage.show();
     }
