@@ -1,5 +1,8 @@
 package com.example.snake.model;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 import java.util.Random;
 
 import static com.example.snake.model.SnakeBoard.Direction.*;
@@ -9,6 +12,8 @@ public class SnakeBoard {
 
     public static final int BOARD_SIZE = 40;
     public Point head;
+    public List<Point> snake = new ArrayList<>();
+
     public Point apple;
     private Direction currentDirection = UP;
     private double accumulatedTime = 0.0;
@@ -17,6 +22,7 @@ public class SnakeBoard {
 
     public SnakeBoard() {
         head = new Point(20, 20);
+        snake.addFirst(head);
         apple = randomApple();
     }
 
@@ -42,6 +48,7 @@ public class SnakeBoard {
 
         checkForCollisionsWithWalls(next);
 
+        snake.addFirst(head);
         checkForCollisionWithApple();
 
     }
@@ -49,6 +56,8 @@ public class SnakeBoard {
     private void checkForCollisionWithApple() {
         if( head.equals(apple))
             apple = randomApple();
+        else
+            snake.removeLast();
     }
 
     private void checkForCollisionsWithWalls(Point next) {

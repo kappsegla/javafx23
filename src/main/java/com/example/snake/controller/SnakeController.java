@@ -38,7 +38,7 @@ public class SnakeController {
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
             case UP -> model.setUp();
-            case DOWN-> model.setDown();
+            case DOWN -> model.setDown();
             case LEFT -> model.setLeft();
             case RIGHT -> model.setRight();
         }
@@ -48,10 +48,11 @@ public class SnakeController {
         var gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setFill(Color.LAWNGREEN);
-        var head = model.head;
-        gc.fillRect(head.xpos() * 15, head.ypos() * 15, 15, 15);
+//
+        model.snake.forEach(point -> gc.fillRect(point.xpos() * 15, point.ypos() * 15, 15, 15));
+
         gc.setFill(Color.BLACK);
-        gc.strokeText(model.getGameStatus().toString(), 20,20);
+        gc.strokeText(model.getGameStatus().toString(), 20, 20);
         gc.setFill(Color.RED);
         gc.fillRect(model.apple.xpos() * 15, model.apple.ypos() * 15, 15, 15);
     }
