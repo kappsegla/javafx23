@@ -52,7 +52,8 @@ public class SnakeBoard {
         else
             head = next;
 
-
+        if( head.equals(apple))
+            apple = randomApple();
 
     }
 
