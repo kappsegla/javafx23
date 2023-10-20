@@ -1,13 +1,13 @@
-package com.example.snake;
+package com.example.snake.controller;
 
 
-import javafx.animation.AnimationTimer;
+import com.example.snake.utils.GameLoop;
+import com.example.snake.model.SnakeBoard;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import java.util.function.DoubleConsumer;
-import java.util.function.DoubleFunction;
 
 public class SnakeController {
 
@@ -15,9 +15,9 @@ public class SnakeController {
 
     GameLoop gameLoop;
 
-    private Model model = new Model();
+    private SnakeBoard model = new SnakeBoard();
 
-    public Model getModel() {
+    public SnakeBoard getModel() {
         return model;
     }
 
@@ -30,6 +30,8 @@ public class SnakeController {
     }
 
     private void render(double elapsedTime) {
+        var gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         //ToDo: Render snake
     }
 
