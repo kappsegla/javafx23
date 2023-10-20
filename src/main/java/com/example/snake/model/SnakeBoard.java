@@ -31,19 +31,23 @@ public class SnakeBoard {
     }
 
     public void setUp() {
-        currentDirection = UP;
+        if (currentDirection != DOWN)
+            currentDirection = UP;
     }
 
     public void setDown() {
-        currentDirection = DOWN;
+        if (currentDirection != UP)
+            currentDirection = DOWN;
     }
 
     public void setLeft() {
-        currentDirection = LEFT;
+        if (currentDirection != RIGHT)
+            currentDirection = LEFT;
     }
 
     public void setRight() {
-        currentDirection = RIGHT;
+        if (currentDirection != LEFT)
+            currentDirection = RIGHT;
     }
 
     public record Point(int xpos, int ypos) {
