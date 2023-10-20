@@ -1,7 +1,6 @@
 package com.example.snake.model;
 
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 import java.util.Random;
 
@@ -12,13 +11,13 @@ public class SnakeBoard {
 
     public static final int BOARD_SIZE = 40;
     public Point head;
-    public List<Point> snake = new ArrayList<>();
+    public final List<Point> snake = new ArrayList<>();
 
     public Point apple;
     private Direction currentDirection = UP;
     private double accumulatedTime = 0.0;
     private GameStatus gameStatus = RUNNING;
-    Random random = new Random();
+    final Random random = new Random();
 
     public SnakeBoard() {
         head = new Point(20, 20);
@@ -27,7 +26,7 @@ public class SnakeBoard {
     }
 
     private Point randomApple() {
-        return new Point(random.nextInt(BOARD_SIZE),random.nextInt(BOARD_SIZE));
+        return new Point(random.nextInt(BOARD_SIZE), random.nextInt(BOARD_SIZE));
     }
 
 
@@ -56,13 +55,15 @@ public class SnakeBoard {
     }
 
     private void checkForCollisionsWithSelf() {
-        if( snake.contains(head))
+        if (snake.contains(head))
             gameStatus = GAME_OVER;
     }
 
     private void checkForCollisionWithApple() {
-        if( head.equals(apple))
-            apple = randomApple();
+        if (head.equals(apple))
+            do {
+                apple = randomApple();
+            } while (snake.contains(apple));
         else
             snake.removeLast();
     }

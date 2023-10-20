@@ -7,7 +7,7 @@ import java.util.function.DoubleConsumer;
 public class GameLoop extends AnimationTimer {
 
     long lastFrameTimeNanos = 0;
-    DoubleConsumer tick;
+    final DoubleConsumer tick;
 
     public GameLoop(DoubleConsumer tick) {
         this.tick = tick;

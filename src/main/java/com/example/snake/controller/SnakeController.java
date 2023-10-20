@@ -5,7 +5,6 @@ import com.example.snake.utils.GameLoop;
 import com.example.snake.model.SnakeBoard;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -17,7 +16,7 @@ public class SnakeController {
 
     GameLoop gameLoop;
 
-    private SnakeBoard model = new SnakeBoard();
+    private final SnakeBoard model = new SnakeBoard();
 
     public SnakeBoard getModel() {
         return model;
@@ -55,10 +54,5 @@ public class SnakeController {
         gc.strokeText(model.getGameStatus().toString(), 20, 20);
         gc.setFill(Color.RED);
         gc.fillRect(model.apple.xpos() * 15, model.apple.ypos() * 15, 15, 15);
-    }
-
-
-    public void canvasClicked(MouseEvent mouseEvent) {
-
     }
 }

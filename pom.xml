@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>tictactoe</artifactId>
+    <artifactId>snake</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>tictactoe</name>
+    <name>snake</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
