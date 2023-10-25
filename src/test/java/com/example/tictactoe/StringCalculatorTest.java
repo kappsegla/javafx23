@@ -46,6 +46,4 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(9);
     }
-
-
 }
