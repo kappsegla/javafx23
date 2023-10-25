@@ -31,7 +31,13 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    @DisplayName("string containing two and three returns five")
+    void stringContainingTwoAndThreeReturnsFive() {
+        int result = StringCalculator.add("2,3");
 
+        assertThat(result).isEqualTo(5);
+    }
 
 
 }
