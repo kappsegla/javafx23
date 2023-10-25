@@ -1,7 +1,8 @@
 package com.example.tictactoe;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,6 +62,27 @@ class ModelTest {
         assertThat(Model.intervall(0)).isZero();
         assertThat(Model.intervall(10)).isEqualTo(10);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "-1,-1",
+            "0,0",
+            "1,0",
+            "9,0",
+            "10,10"
+    })
+    void testMethod(int testValue, int expectedResult) {
+        assertThat(Model.intervall(testValue)).isEqualTo(expectedResult);
+    }
+
+
+    @Test
+    @DisplayName("value should be zero as default")
+    void valueShouldBeZeroAsDefault() {
+        assertThat(model.getValue()).isZero();
+    }
+
+
 
 
 }
