@@ -39,5 +39,13 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(5);
     }
 
+    @Test
+    @DisplayName("string with \\n and , returns sum of numbers")
+    void stringWithNAndReturnsSumOfNumbers() {
+        int result = StringCalculator.add("2\n3,4");
+
+        assertThat(result).isEqualTo(9);
+    }
+
 
 }
