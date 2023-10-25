@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ModelTest {
 
+    Model model = new Model();
 
     @Test
     @DisplayName("Given add when values 1 and 2 then returns 3")
@@ -26,8 +27,6 @@ class ModelTest {
     @Test
     @DisplayName("After calling setValue with 2 getValue should return 2")
     void afterCallingSetValueWith2GetValueShouldReturn2() {
-        Model model = new Model();
-
         model.setValue(2);
 
         assertThat(model.getValue()).isEqualTo(2);
@@ -36,8 +35,6 @@ class ModelTest {
     @Test
     @DisplayName("checkText is true for empty String")
     void checkTextIsTrueForEmptyString() {
-        Model model = new Model();
-
         var result = model.checkText("");
 
         assertThat(result).isTrue();
@@ -46,8 +43,6 @@ class ModelTest {
     @Test
     @DisplayName("checkText is False for non empty String")
     void checkTextIsFalseForNonEmptyString() {
-        Model model = new Model();
-
         var result = model.checkText("Hej");
 
         assertThat(result).isFalse();
