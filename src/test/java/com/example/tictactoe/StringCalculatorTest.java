@@ -22,4 +22,16 @@ public class StringCalculatorTest {
 
         assertThat(result).isOne();
     }
+
+    @Test
+    @DisplayName("string containing two returns two")
+    void stringContainingTwoReturnsTwo() {
+        int result = StringCalculator.add("2");
+
+        assertThat(result).isEqualTo(2);
+    }
+
+
+
+
 }
