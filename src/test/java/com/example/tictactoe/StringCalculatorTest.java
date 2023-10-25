@@ -14,4 +14,12 @@ public class StringCalculatorTest {
 
         assertThat(result).isZero();
     }
+
+    @Test
+    @DisplayName("string containing one returns one")
+    void stringContainingOneReturnsOne() {
+        int result = StringCalculator.add("1");
+
+        assertThat(result).isOne();
+    }
 }
