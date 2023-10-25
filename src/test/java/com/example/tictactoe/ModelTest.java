@@ -23,5 +23,49 @@ class ModelTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @Test
+    @DisplayName("After calling setValue with 2 getValue should return 2")
+    void afterCallingSetValueWith2GetValueShouldReturn2() {
+        Model model = new Model();
+
+        model.setValue(2);
+
+        assertThat(model.getValue()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("checkText is true for empty String")
+    void checkTextIsTrueForEmptyString() {
+        Model model = new Model();
+
+        var result = model.checkText("");
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    @DisplayName("checkText is False for non empty String")
+    void checkTextIsFalseForNonEmptyString() {
+        Model model = new Model();
+
+        var result = model.checkText("Hej");
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    @DisplayName("some values should always return zero")
+    void someValuesShouldAlwaysReturnZero() {
+        assertThat(Model.intervall(1)).isZero();
+        assertThat(Model.intervall(9)).isZero();
+    }
+
+    @Test
+    @DisplayName("values outside intervall should return value")
+    void valuesOutsideIntervallShouldReturnValue() {
+        assertThat(Model.intervall(0)).isZero();
+        assertThat(Model.intervall(10)).isEqualTo(10);
+    }
+
 
 }
