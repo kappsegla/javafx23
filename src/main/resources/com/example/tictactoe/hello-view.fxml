@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 
 <?import javafx.scene.image.ImageView?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.tictactoe.HelloController">
     <VBox alignment="BOTTOM_CENTER" spacing="20.0">
         <Label text="${controller.model.score}"/>
