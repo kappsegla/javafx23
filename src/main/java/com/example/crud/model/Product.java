@@ -13,6 +13,7 @@ public class Product {
     IntegerProperty price = new SimpleIntegerProperty(0);
 
 
+
     public Product(String name, String category, int price) {
         this.name.set(name);
         this.category.set(category);
