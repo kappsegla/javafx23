@@ -1,4 +1,4 @@
-package com.example.crud;
+package com.example.crud.model;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.control.TableView;

@@ -4,4 +4,6 @@ module com.example.tictactoe {
 
     opens com.example.crud to javafx.fxml;
     exports com.example.crud;
+    exports com.example.crud.model;
+    opens com.example.crud.model to javafx.fxml;
 }
