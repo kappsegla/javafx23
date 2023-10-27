@@ -4,11 +4,13 @@ import com.example.crud.model.Model;
 import com.example.crud.model.Product;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.util.converter.NumberStringConverter;
 
 import java.util.ArrayList;
 
@@ -30,8 +32,24 @@ public class CrudController {
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         priceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
         model.selectedProductProperty().bind(tableView.getSelectionModel().selectedItemProperty());
-        deleteButton.disableProperty().bind( Bindings.isNull(model.selectedProductProperty()) );
 
+        model.selectedProductProperty().addListener(new ChangeListener<Product>() {
+            @Override
+            public void changed(ObservableValue<? extends Product> observable, Product oldValue, Product newValue) {
+                if( oldValue != null) {
+                    productName.textProperty().unbindBidirectional(oldValue.nameProperty());
+                    productPrice.textProperty().unbindBidirectional(oldValue.priceProperty());
+                    productPrice.textProperty().unbindBidirectional(oldValue.categoryProperty());
+                }
+                productName.textProperty().bindBidirectional(newValue.nameProperty());
+                Bindings.bindBidirectional(productPrice.textProperty(), newValue.priceProperty(), new NumberStringConverter());
+                productCategory.textProperty().bindBidirectional(newValue.categoryProperty());
+            }
+        });
+
+
+
+        deleteButton.disableProperty().bind( Bindings.isNull(model.selectedProductProperty()) );
     }
 
 
