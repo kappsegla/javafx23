@@ -25,7 +25,7 @@
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#newProduct" text="New"/>
                         <Button mnemonicParsing="false" onAction="#updateProduct" text="Update"/>
-                        <Button mnemonicParsing="false" onAction="#deleteProduct" text="Delete"/>
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteProduct" text="Delete"/>
                     </buttons>
                   </ButtonBar>
                   <GridPane layoutX="61.0" layoutY="66.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
