@@ -2,6 +2,7 @@ package com.example.crud;
 
 import com.example.crud.model.Model;
 import com.example.crud.model.Product;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,6 +26,7 @@ public class CrudController {
         tableView.setItems(model.getObservableProducts());
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         priceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
+        model.selectedProductProperty().bind(tableView.getSelectionModel().selectedItemProperty());
     }
 
 
@@ -38,6 +40,6 @@ public class CrudController {
     }
 
     public void deleteProduct(ActionEvent actionEvent) {
-
+        model.deleteSelectedProduct();
     }
 }
