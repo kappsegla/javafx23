@@ -55,4 +55,10 @@ public class Model {
         //If connected to database, delete from database then reload objects from database to list.
         observableProducts.remove(selectedProduct.get());
     }
+
+    public Product newProduct() {
+        Product newProduct = new Product("","",0);
+        observableProducts.add(newProduct);
+        return newProduct;
+    }
 }

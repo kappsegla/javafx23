@@ -36,7 +36,7 @@ public class CrudController {
         model.selectedProductProperty().addListener(new ChangeListener<Product>() {
             @Override
             public void changed(ObservableValue<? extends Product> observable, Product oldValue, Product newValue) {
-                if( oldValue != null) {
+                if (oldValue != null) {
                     productName.textProperty().unbindBidirectional(oldValue.nameProperty());
                     productPrice.textProperty().unbindBidirectional(oldValue.priceProperty());
                     productPrice.textProperty().unbindBidirectional(oldValue.categoryProperty());
@@ -46,16 +46,15 @@ public class CrudController {
                 productCategory.textProperty().bindBidirectional(newValue.categoryProperty());
             }
         });
-
-
-
-        deleteButton.disableProperty().bind( Bindings.isNull(model.selectedProductProperty()) );
+        deleteButton.disableProperty().bind(Bindings.isNull(model.selectedProductProperty()));
     }
 
 
     public void newProduct(ActionEvent actionEvent) {
-
-
+        Product product = model.newProduct();
+        //Select the new product
+        tableView.getSelectionModel().select(product);
+        productName.requestFocus();
     }
 
     public void updateProduct(ActionEvent actionEvent) {
