@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.tictactoe.HelloController">
+            fx:controller="com.example.tictactoe.TicTacToeController">
     <children>
         <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.bottomAnchor="100.0"
                   AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
@@ -21,21 +21,21 @@
             </rowConstraints>
             <children>
                 <Label onMouseClicked="#labelClicked" fx:id="label1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="O"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="X"
+                <Label onMouseClicked="#labelClicked" fx:id="label2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="X"
                        GridPane.columnIndex="1"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.columnIndex="2"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.rowIndex="1"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.rowIndex="2"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <Label onMouseClicked="#labelClicked" fx:id="label9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        GridPane.columnIndex="2" GridPane.rowIndex="2"/>
             </children>
             <opaqueInsets>
