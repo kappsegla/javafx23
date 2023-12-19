@@ -1,6 +1,7 @@
 package com.example.tictactoe;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 
@@ -8,29 +9,16 @@ import javafx.scene.media.AudioClip;
 public class HelloController {
 
     private Model model = new Model();
-    AudioClip buzzer = new AudioClip(getClass().getResource("sounds/punch.mp3").toExternalForm());
 
-    public Model getModel() {
-        return model;
+    public Label label1;
+
+    public void initialize()
+    {
+        label1.textProperty().bind(model.cell1Property());
     }
 
-    public void initialize() {
 
-    }
-
-
-    public void image1Clicked(MouseEvent mouseEvent) {
-        buzzer.play();
-        model.smack(1);
-    }
-
-    public void image2Clicked(MouseEvent mouseEvent) {
-        buzzer.play();
-        model.smack(2);
-    }
-
-    public void image3Clicked(MouseEvent mouseEvent) {
-        buzzer.play();
-        model.smack(3);
+    public void labelClicked(MouseEvent mouseEvent) {
+        model.setCell1("O");
     }
 }
