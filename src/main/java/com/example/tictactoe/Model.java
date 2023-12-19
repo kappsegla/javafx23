@@ -1,12 +1,6 @@
 package com.example.tictactoe;
 
-import javafx.application.Platform;
 import javafx.beans.property.*;
-import javafx.scene.image.Image;
-
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 
 public class Model {
 
@@ -20,16 +14,128 @@ public class Model {
     StringProperty cell8 = new SimpleStringProperty("");
     StringProperty cell9 = new SimpleStringProperty("");
 
+    IntegerProperty playerScore = new SimpleIntegerProperty(0);
+    IntegerProperty computerScore = new SimpleIntegerProperty(0);
 
+    boolean gameOver = false;
+
+    String currentPlayer = "X";
+    static final String PLAYER = "X";
+    static final String COMPUTER = "0";
+
+    static final int[][] possibleWins = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9},
+            {1, 4, 7},
+            {2, 5, 8},
+            {3, 6, 9},
+            {1, 5, 9},
+            {3, 5, 7}};
 
     public void cellClicked(int id) {
-        switch(id){
-            case 1-> setCell1("X");
-            case 2-> setCell2("X");
-            case 3-> setCell3("X");
-            case 9-> setCell9("X");
-
+        if (gameOver) {
+            prepareNextRound();
+            return;
         }
+        if (!cellValue(id).isEmpty())
+            return;
+        switch (id) {
+            case 1 -> setCell1(currentPlayer);
+            case 2 -> setCell2(currentPlayer);
+            case 3 -> setCell3(currentPlayer);
+            case 4 -> setCell4(currentPlayer);
+            case 5 -> setCell5(currentPlayer);
+            case 6 -> setCell6(currentPlayer);
+            case 7 -> setCell7(currentPlayer);
+            case 8 -> setCell8(currentPlayer);
+            case 9 -> setCell9(currentPlayer);
+        }
+        checkForGameOver();
+        changeCurrentPlayer();
+    }
+
+    private void prepareNextRound() {
+        setCell1("");
+        setCell2("");
+        setCell3("");
+        setCell4("");
+        setCell5("");
+        setCell6("");
+        setCell7("");
+        setCell8("");
+        setCell9("");
+        gameOver = false;
+    }
+
+    public void checkForGameOver() {
+        //Check for 3 in a row
+        for (var ids : possibleWins) {
+            if (!cellValue(ids[0]).isEmpty()
+                && cellValue(ids[0]).equals(cellValue(ids[1]))
+                && cellValue(ids[1]).equals(cellValue(ids[2]))) {
+                gameOver = true;
+                if( cellValue(ids[0]).equals(PLAYER))
+                    setPlayerScore(getPlayerScore()+1);
+                else
+                    setComputerScore(getComputerScore()+1);
+                return;
+            }
+        }
+        //Check for all 9 cells used
+        gameOver = true;
+        for (int i = 1; i < 10; i++) {
+            if (cellValue(i).isEmpty()) {
+                gameOver = false;
+                break;
+            }
+        }
+    }
+
+    private String cellValue(int id) {
+        return switch (id) {
+            case 1 -> getCell1();
+            case 2 -> getCell2();
+            case 3 -> getCell3();
+            case 4 -> getCell4();
+            case 5 -> getCell5();
+            case 6 -> getCell6();
+            case 7 -> getCell7();
+            case 8 -> getCell8();
+            case 9 -> getCell9();
+            default -> "";
+        };
+    }
+
+    private void changeCurrentPlayer() {
+        if (currentPlayer.equals(PLAYER))
+            currentPlayer = COMPUTER;
+        else
+            currentPlayer = PLAYER;
+    }
+
+    public int getPlayerScore() {
+        return playerScore.get();
+    }
+
+    public IntegerProperty playerScoreProperty() {
+        return playerScore;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        this.playerScore.set(playerScore);
+    }
+
+    public int getComputerScore() {
+        return computerScore.get();
+    }
+
+    public IntegerProperty computerScoreProperty() {
+        return computerScore;
+    }
+
+    public void setComputerScore(int computerScore) {
+        this.computerScore.set(computerScore);
     }
 
     public String getCell1() {
